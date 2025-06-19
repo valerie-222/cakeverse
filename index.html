@@ -1,239 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CakeVerse Customizer</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: radial-gradient(ellipse at top, #1e003e, #0b0b2f);
-      color: #fff;
-    }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      padding: 2rem;
-    }
-    h2 {
-      color: #f9c5ff;
-    }
-    fieldset {
-      border: none;
-      margin-bottom: 2rem;
-    }
-    label {
-      display: block;
-      margin: 0.5rem 0 0.2rem;
-    }
-    input[type="text"], textarea, select, input[type="date"] {
-      width: 100%;
-      padding: 0.6rem;
-      border: none;
-      border-radius: 5px;
-    }
-    .step {
-      display: none;
-    }
-    .step.active {
-      display: block;
-    }
-    button {
-      background: #ae00ff;
-      border: none;
-      padding: 0.7rem 1.5rem;
-      color: white;
-      border-radius: 4px;
-      margin-top: 1rem;
-      cursor: pointer;
-    }
-    .summary-card {
-      background-color: #2a1055;
-      padding: 1.5rem;
-      border-radius: 10px;
-      margin-top: 1rem;
-    }
-    .checkbox-group, .multi-select-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .checkbox-group label, .multi-select-group label {
-      flex: 1 0 48%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CakeVerse Galactic Order</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h2>CakeVerse Galactic Order</h2>
-    <form id="cakeForm" method="POST" action="submit.php">
-      
+    <div class="form-container">
+        <div class="form-content">
+            <h1 class="form-title">CakeVerse Galactic Order</h1>
 
-      <!-- Step 1 -->
-      <div class="step active" id="step1">
-        <fieldset>
-          <legend>Step 1: Customer Information</legend>
-          <label>Customer Name</label><input type="text" name="customerName" required>
-          <label>Address</label><input type="text" name="address" required>
-        </fieldset>
-      </div>
+            <form id="cakeOrderForm" action="submit.php" method="POST" enctype="multipart/form-data">
+                <div class="form-section active" id="step1">
+                    <h2>Step 1: Customer Information</h2>
+                    <p>Describe your own cake and we will create it for you!</p>
 
-      <!-- Step 2 -->
-      <div class="step" id="step2">
-        <fieldset>
-          <legend>Step 2: Cake Customization</legend>
-          <label>Cake Design Name</label><input type="text" name="designName" required>
-          <label>Layers</label>
-          <div class="checkbox-group">
-            <label><input type="checkbox" name="layers[]" value="Choco Sponge"> Choco Sponge</label>
-            <label><input type="checkbox" name="layers[]" value="Vanilla Cream"> Vanilla Cream</label>
-            <label><input type="checkbox" name="layers[]" value="Red Velvet"> Red Velvet</label>
-            <label><input type="checkbox" name="layers[]" value="Raspberry Jam"> Raspberry Jam</label>
-            <label><input type="checkbox" name="layers[]" value="Matcha"> Matcha</label>
-          </div>
-          <label>Toppings</label>
-          <div class="checkbox-group">
-            <label><input type="checkbox" name="toppings[]" value="Sprinkles"> Sprinkles</label>
-            <label><input type="checkbox" name="toppings[]" value="Rocket Candy"> Rocket Candy</label>
-            <label><input type="checkbox" name="toppings[]" value="Nuts"> Nuts</label>
-            <label><input type="checkbox" name="toppings[]" value="Choco Chips"> Choco Chips</label>
-          </div>
-          <label>Artist Assigned</label>
-          <select name="artist">
-            <option>Nova Sweetz</option>
-            <option>Cosmo Bakes</option>
-            <option>Stella Swirls</option>
-          </select>
-        </fieldset>
-      </div>
+                    <div class="form-group">
+                        <label for="customer_name">Customer Name</label>
+                        <input type="text" id="customer_name" name="customer_name" required>
+                    </div>
 
-      <!-- Step 3 -->
-      <div class="step" id="step3">
-        <fieldset>
-          <legend>Step 3: Delivery Details</legend>
-          <label>Delivery Date</label><input type="date" name="deliveryDate" required>
-          <label>Delivery Type</label>
-          <select name="deliveryType">
-            <option>Lunar</option>
-            <option>Planetary</option>
-            <option>Teleport Drone</option>
-          </select>
-        </fieldset>
-      </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
 
-      <!-- Step 4 -->
-      <div class="step" id="step4">
-        <fieldset>
-          <legend>Step 4: Payment</legend>
-          <label>Payment Method</label>
-          <select name="paymentMethod">
-            <option>Lunar Credits</option>
-            <option>G-Coin</option>
-            <option>Starpay</option>
-          </select>
-        </fieldset>
-      </div>
+                    <div class="form-group">
+                        <label for="phone_number">Your Contact Number</label>
+                        <div class="contact-number-group">
+                            <span class="country-code-display">+63</span>
+                            <input type="text" id="phone_number" name="phone_number" placeholder="Phone Number (e.g., 9171234567)" pattern="[0-9]{10}" title="Ten digit Philippine mobile number (e.g., 9171234567)" required>
+                        </div>
+                    </div>
 
-      <!-- Step 5 -->
-      <div class="step" id="step5">
-        <fieldset>
-          <legend>Step 5: Feedback & Promotions</legend>
-          <label>Feedback</label><textarea name="feedback"></textarea>
-          <label>Promotions</label>
-          <div class="multi-select-group">
-            <label><input type="checkbox" name="promos[]" value="Valentine"> Valentine</label>
-            <label><input type="checkbox" name="promos[]" value="Birthday"> Birthday</label>
-            <label><input type="checkbox" name="promos[]" value="Anniversary"> Anniversary</label>
-            <label><input type="checkbox" name="promos[]" value="MatchaLover"> MatchaLover</label>
-          </div>
-        </fieldset>
-      </div>
+                    <div class="form-group">
+                        <label for="delivery_date">Delivery Date</label>
+                        <input type="date" id="delivery_date" name="delivery_date" required>
+                    </div>
 
-      <!-- Step 6 -->
-      <div class="step" id="step6">
-        <fieldset>
-          <legend>Step 6: Review & Submit</legend>
-          <div class="summary-card" id="summary"></div>
-          <button type="submit">Confirm Order</button>
-        </fieldset>
-      </div>
+                    <div class="form-group">
+                        <label for="delivery_type">Delivery Type</label>
+                        <select id="delivery_type" name="delivery_type" required>
+                            <option value="">Select Delivery Type</option>
+                            <option value="Lunar">Lunar</option>
+                            <option value="Planetary">Planetary</option>
+                        </select>
+                    </div>
 
-      <!-- Navigation -->
-      <div style="text-align:right">
-        <button type="button" id="prevBtn">Previous</button>
-        <button type="button" id="nextBtn">Next</button>
-      </div>
-    </form>
-  </div>
+                    <button type="button" class="next-btn">Next</button>
+                </div>
 
-  <script>
-    let currentStep = 0;
-    const steps = document.querySelectorAll(".step");
-    const nextBtn = document.getElementById("nextBtn");
-    const prevBtn = document.getElementById("prevBtn");
-    const form = document.getElementById("cakeForm");
-    const summaryDiv = document.getElementById("summary");
+                <div class="form-section" id="step2">
+                    <h2>Step 2: Cake Customization</h2>
 
-    function showStep(n) {
-      steps.forEach(step => step.classList.remove("active"));
-      steps[n].classList.add("active");
-      prevBtn.style.display = n === 0 ? "none" : "inline-block";
-      nextBtn.style.display = n === steps.length - 1 ? "none" : "inline-block";
-    }
+                    <div class="form-group">
+                        <label for="cake_design_name">Cake Design Name</label>
+                        <input type="text" id="cake_design_name" name="cake_design_name" placeholder="e.g. My Custom Galactic Cake" required>
+                    </div>
 
-    function getOrderID() {
-      const now = new Date();
-      return "O" + now.getTime().toString().slice(-6);
-    }
+                    <div class="form-group">
+                        <label>Select a Cake Design:</label>
+                        <div class="cake-design-options">
+                            <label>
+                                <input type="radio" name="cake_design" value="Galactic Chocolate" required>
+                                <div class="design-card">
+                                    <img src="images/cake1.png" alt="Galactic Chocolate Cake">
+                                    <span>Galactic Chocolate</span>
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="cake_design" value="Red Velvet Meteor">
+                                <div class="design-card">
+                                    <img src="images/cake3.png" alt="Red Velvet Meteor Cake">
+                                    <span>Red Velvet Meteor</span>
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="cake_design" value="Matcha Nebula">
+                                <div class="design-card">
+                                    <img src="images/cake2.png" alt="Matcha Nebula Cake">
+                                    <span>Matcha Nebula</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
 
-    nextBtn.addEventListener("click", () => {
-      if (currentStep < steps.length - 1) {
-        currentStep++;
-        if (currentStep === steps.length - 1) generateSummary();
-        showStep(currentStep);
-      }
-    });
+                    <div class="form-group">
+                        <label>Layers:</label>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" name="layers[]" value="Choco Sponge"> Choco Sponge
+                            </label>
+                            <label>
+                                <input type="checkbox" name="layers[]" value="Vanilla Cream"> Vanilla Cream
+                            </label>
+                            <label>
+                                <input type="checkbox" name="layers[]" value="Red Velvet"> Red Velvet
+                            </label>
+                            <label>
+                                <input type="checkbox" name="layers[]" value="Raspberry Jam"> Raspberry Jam
+                            </label>
+                            <label>
+                                <input type="checkbox" name="layers[]" value="Matcha"> Matcha
+                            </label>
+                            <label>
+                                <input type="checkbox" name="layers[]" value="Cream Cheese"> Cream Cheese
+                            </label>
+                            <label>
+                                <input type="checkbox" name="layers[]" value="Choco Chips"> Choco Chips
+                            </label>
+                        </div>
+                    </div>
 
-    prevBtn.addEventListener("click", () => {
-      if (currentStep > 0) {
-        currentStep--;
-        showStep(currentStep);
-      }
-    });
+                    <div class="form-group">
+                        <label>Toppings:</label>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" name="toppings[]" value="Sprinkles"> Sprinkles
+                            </label>
+                            <label>
+                                <input type="checkbox" name="toppings[]" value="Rocket Candy"> Rocket Candy
+                            </label>
+                            <label>
+                                <input type="checkbox" name="toppings[]" value="Nuts"> Nuts
+                            </label>
+                        </div>
+                    </div>
 
-    function generateSummary() {
-      const data = new FormData(form);
-      const orderID = getOrderID();
-      let layers = data.getAll('layers[]');
-      let toppings = data.getAll('toppings[]');
-      let promos = data.getAll('promos[]');
+                    <div class="form-group">
+                        <label for="payment_method">Payment Method:</label>
+                        <select id="payment_method" name="payment_method" required>
+                            <option value="">Please Select</option>
+                            <option value="Credits">Credits</option>
+                            <option value="G-Coin">G-Coin</option>
+                        </select>
+                    </div>
 
-      const summaryHTML = `
-        <h3>Order ID: ${orderID}</h3>
-        <p><strong>Name:</strong> ${data.get('customerName')}</p>
-        <p><strong>Address:</strong> ${data.get('address')}</p>
-        <p><strong>Cake Design:</strong> ${data.get('designName')}</p>
-        <p><strong>Layers:</strong> ${layers.join(', ')}</p>
-        <p><strong>Toppings:</strong> ${toppings.join(', ')}</p>
-        <p><strong>Artist:</strong> ${data.get('artist')}</p>
-        <p><strong>Delivery Date:</strong> ${data.get('deliveryDate')}</p>
-        <p><strong>Delivery Type:</strong> ${data.get('deliveryType')}</p>
-        <p><strong>Payment Method:</strong> ${data.get('paymentMethod')}</p>
-        <p><strong>Feedback:</strong> ${data.get('feedback')}</p>
-        <p><strong>Promotions:</strong> ${promos.join(', ')}</p>
-      `;
-      summaryDiv.innerHTML = summaryHTML;
-    }
+                    <button type="button" class="prev-btn">Previous</button>
+                    <button type="submit" class="submit-btn">Submit Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-    // This line adds orderID to the hidden input before submitting to PHP
-    form.addEventListener("submit", () => {
-      const orderID = getOrderID();
-      document.getElementById("order_id").value = orderID;
-    });
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle">Order Confirmed!</h2>
+            <p id="modalMessage">Your order has been successfully placed.</p>
+            <p id="modalOrderId">Order ID: </p>
+            <button id="modalProceedBtn" class="submit-btn">View Receipt</button>
+        </div>
+    </div>
 
-    // Initialize stepper on page load
-    showStep(currentStep);
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
