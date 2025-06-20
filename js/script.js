@@ -132,4 +132,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     showStep(0);
+
+    // Hamburger menu functionality for responsive nav
+    const navToggle = document.querySelector('.nav-toggle');
+    const navUl = document.querySelector('nav ul');
+    if (navToggle && navUl) {
+        navToggle.addEventListener('click', () => {
+            navUl.classList.toggle('open');
+        });
+    }
 });
