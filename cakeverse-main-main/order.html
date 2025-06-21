@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CakeVerse Galactic Order</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-content">
+            <h1 class="form-title">CakeVerse Galactic Order</h1>
+
+            <form id="cakeOrderForm" action="submit.php" method="POST" enctype="multipart/form-data">
+                <div class="form-section active" id="step1">
+                    <h2>Step 1: Customer Information</h2>
+                    <p>Describe your own cake and we will create it for you!</p>
+
+                    <div class="form-group">
+                        <label for="customer_name">Customer Name</label>
+                        <input type="text" id="customer_name" name="customer_name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone_number">Your Contact Number</label>
+                        <div class="contact-number-group">
+                            <span class="country-code-display">+63</span>
+                            <input type="text" id="phone_number" name="phone_number" placeholder="Phone Number (e.g., 9171234567)" pattern="[0-9]{10}" title="Ten digit Philippine mobile number (e.g., 9171234567)" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="delivery_date">Delivery Date</label>
+                        <input type="date" id="delivery_date" name="delivery_date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="delivery_type">Delivery Type</label>
+                        <select id="delivery_type" name="delivery_type" required>
+                            <option value="">Select Delivery Type</option>
+                            <option value="Lunar">Lunar</option>
+                            <option value="Planetary">Planetary</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="next-btn">Next</button>
+                </div>
+
+                <div class="form-section" id="step2">
+                    <h2>Step 2: Cake Customization</h2>
+
+                    <div class="form-group">
+                        <label for="cake_design_name">Cake Design Name</label>
+                        <input type="text" id="cake_design_name" name="cake_design_name" placeholder="e.g. My Custom Galactic Cake" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select a Cake Design:</label>
+                        <div class="cake-design-options">
+                            <label>
+                                <input type="radio" name="cake_design" value="Galactic Chocolate" required>
+                                <div class="design-card">
+                                    <img src="images/eec9a200c8479a46a2c210d3916696bf.jpg" alt="Galactic Chocolate Cake">
+                                    <span>Galactic Chocolate</span>
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="cake_design" value="Red Velvet Meteor">
+                                <div class="design-card">
+                                    <img src="images/130720b3c74355e0ad5ce124b9633de6.jpg" alt="Red Velvet Meteor Cake">
+                                    <span>Red Velvet Meteor</span>
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="cake_design" value="Matcha Nebula">
+                                <div class="design-card">
+                                    <img src="images/2faffea277b9809d64f9fd6bbf2c0ef2.jpg" alt="Matcha Nebula Cake">
+                                    <span>Matcha Nebula</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Layers:</label>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" name="layers[]" value="Choco Sponge"> Choco Sponge
+                            </label>
+                            <label>
+                                <input type="checkbox" name="layers[]" value="Vanilla Cream"> Vanilla Cream
+                            </label>
+                            <label>
+                                <input type="checkbox" name="layers[]" value="Red Velvet"> Red Velvet
+                            </label>
+                            <label>
+                                <input type="checkbox" name="layers[]" value="Raspberry Jam"> Raspberry Jam
+                            </label>
+                            <label>
+                                <input type="checkbox" name="layers[]" value="Matcha"> Matcha
+                            </label>
+                            <label>
+                                <input type="checkbox" name="layers[]" value="Cream Cheese"> Cream Cheese
+                            </label>
+                            <label>
+                                <input type="checkbox" name="layers[]" value="Choco Chips"> Choco Chips
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Toppings:</label>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" name="toppings[]" value="Sprinkles"> Sprinkles
+                            </label>
+                            <label>
+                                <input type="checkbox" name="toppings[]" value="Rocket Candy"> Rocket Candy
+                            </label>
+                            <label>
+                                <input type="checkbox" name="toppings[]" value="Nuts"> Nuts
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="payment_method">Payment Method:</label>
+                        <select id="payment_method" name="payment_method" required>
+                            <option value="">Please Select</option>
+                            <option value="Credits">Credits</option>
+                            <option value="G-Coin">G-Coin</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="prev-btn">Previous</button>
+                    <button type="submit" class="submit-btn">Submit Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle">Order Confirmed!</h2>
+            <p id="modalMessage">Your order has been successfully placed.</p>
+            <p id="modalOrderId">Order ID: </p>
+            <button id="modalProceedBtn" class="submit-btn">View Receipt</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

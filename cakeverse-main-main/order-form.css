@@ -1,0 +1,180 @@
+/* --- Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff0f7;
+  margin: 0;
+  padding: 2rem;
+  color: #4c3c78;
+}
+
+/* --- Confirmation Section --- */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2em;
+  color: #7D71A7;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1em;
+  color: #444;
+}
+
+strong {
+  font-weight: 600;
+  color: #7D71A7;
+}
+
+#modalOrderId {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #CAADFF;
+}
+
+.summary-card {
+  background-color: #f5ebff;
+  border: 1px solid #e4d6f6;
+  padding: 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(125, 113, 167, 0.1);
+}
+
+.summary-card h2 {
+  font-family: 'Playfair Display', serif;
+  color: #7D71A7;
+  font-size: 1.5em;
+  margin-top: 0;
+}
+
+/* --- Feedback Section --- */
+.feedback-section,
+.promo-section {
+  background-color: #f3d3f6;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 3px 10px rgba(202, 173, 255, 0.15);
+}
+
+.feedback-section h3,
+.promo-section h3 {
+  font-size: 1.3em;
+  font-family: 'Playfair Display', serif;
+  color: #7D71A7;
+  margin-bottom: 1rem;
+}
+
+textarea {
+  width: 100%;
+  border: 1.5px solid #CAADFF;
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-size: 1em;
+  background: #fff7fb;
+  resize: vertical;
+  min-height: 90px;
+  font-family: 'Poppins', sans-serif;
+  transition: border 0.3s;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #A985FF;
+  box-shadow: 0 0 6px #d2b7ff;
+}
+
+/* --- Submit Button --- */
+button.submit-btn {
+  background: #CAADFF;
+  border: none;
+  color: white;
+  font-size: 1em;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 30px;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(202, 173, 255, 0.3);
+}
+
+button.submit-btn:hover {
+  background-color: #b38eff;
+  transform: translateY(-2px);
+}
+
+/* --- Promo Section --- */
+.promo-label {
+  font-weight: 600;
+  color: #4c3c78;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.promo-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.promo-options label {
+  background-color: #fff7fb;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 2px solid #CAADFF;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.promo-options label:hover {
+  background-color: #f8eaff;
+  box-shadow: 0 2px 8px #ebccff;
+}
+
+.promo-options input[type="radio"] {
+  accent-color: #CAADFF;
+  cursor: pointer;
+}
+
+/* --- Back Button --- */
+.back-btn {
+  background: #ffb6d5;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.3s;
+}
+
+.back-btn:hover {
+  background: #e79ec2;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  .summary-card,
+  .feedback-section,
+  .promo-section {
+    padding: 1rem;
+  }
+
+  textarea {
+    font-size: 0.95em;
+  }
+
+  button.submit-btn,
+  .back-btn {
+    width: 100%;
+  }
+}
